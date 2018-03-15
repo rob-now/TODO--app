@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO</title>
     <link href="style.css" type="text/css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 
 <body>
@@ -15,9 +16,6 @@
 <div class="container">
     <!--FORM-->
     <form id="todo-form" class="todo-form">
-
-        <!--TASK INPUT-->
-
         <!--LABEL AND TEXT AREA-->
         <div class="task-input">
             <label for="task-area-input" class="task-area-label">Task description</label>
@@ -30,11 +28,58 @@
             <button type="submit" class="task-submit-btn">Add</button>
         </div>
         <!--SUBMIT BUTTON-->
-
-        <!--TASK INPUT-->
-
     </form>
     <!--FORM-->
+
+    <!--TO-DO LIST-->
+    <section class="todo-list">
+        <!--TO-DO LIST HEADER-->
+        <header class="todo-list-header">
+            <h2 class="todo-list-title">List of tasks</h2>
+            <!--TO-DO SEARCH-->
+            <form class="todo-list-search-form">
+                <input type="search" id="todoSearch" class="todo-search-field" placeholder="Search...">
+            </form>
+            <!--TO-DO SEARCH-->
+        </header>
+        <!--TO-DO LIST HEADER-->
+
+        <!--LIST OF TASKS-->
+        <div id="todoList" class="list-of-tasks">
+            <!--TO-DO ELEMENTS-->
+            <div class="todo-element">
+                <div class="todo-element-bar">
+                    <h3 class="todo-element-date">2018-03-15 16:45</h3>
+                    <button class="todo-element-delete" title="Delete task">
+                        <i class="far fa-trash-alt fa-lg"></i>
+                    </button>
+                </div>
+                <div class="todo-element-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.
+                </div>
+            </div>
+
+            <div class="todo-element">
+                <div class="todo-element-bar">
+                    <h3 class="todo-element-date">2018-03-15 16:45</h3>
+                    <button class="todo-element-delete" title="Delete task">
+                        <i class="far fa-trash-alt fa-lg"></i>
+                    </button>
+                </div>
+
+                <div class="todo-element-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.
+                </div>
+            </div>
+            <!--TO-DO ELEMENTS-->
+        </div>
+        <!--LIST OF TASKS-->
+    </section>
+    <!--TO-DO LIST-->
 </div>
 <!--CONTAINER-->
 
