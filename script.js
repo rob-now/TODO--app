@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const todoForm = document.querySelector("#todo-form");
     const search = document.querySelector("#todoSearch");
     const todoList = document.querySelector("#todoList");
 
+    // Adding tasks functionality
     function addTask(text) {
-        console.log("Adding task");
         // to-do element div
         var todoElement = document.createElement("div");
         todoElement.classList.add("todo-element");
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var todoText = document.createElement("div");
         todoText.classList.add("todo-element-text");
 
-        // adding elements to DOM
+        // Adding elements to DOM
         var todoElementDOM = todoList.appendChild(todoElement);
         // bar area
         var todoElementBarDOM = todoElementDOM.appendChild(todoElementBar);
@@ -49,27 +48,24 @@ document.addEventListener("DOMContentLoaded", function () {
             var currentHour = currentDate.getHours();
             var currentMinute = currentDate.getMinutes();
 
-            if (currentMonth < 10) {
-                currentMonth = "0" + currentMonth;
+            function fixDate(input) {
+                if (input < 10) {
+                    return "0" + input;
+                }
+                else {
+                    return input;
+                }
             }
-            if (currentDay < 10) {
-                currentDay = "0" + currentDay;
-            }
-            if (currentHour < 10) {
-                currentHour = "0" + currentHour;
-            }
-            if (currentMinute < 10) {
-                currentMinute = "0" + currentMinute;
-            }
+
             return currentYear
                 + "-"
-                + currentMonth
+                + fixDate(currentMonth)
                 + "-"
-                + currentDay
+                + fixDate(currentDay)
                 + ", "
-                + currentHour
+                + fixDate(currentHour)
                 + ":"
-                + currentMinute;
+                + fixDate(currentMinute);
         }
     }
 
