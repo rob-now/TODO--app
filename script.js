@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Event handler for adding tasks to the list
     document.addEventListener("submit", function (e) {
         e.preventDefault();
         const textArea = this.querySelector(".task-area-text");
@@ -80,7 +81,15 @@ document.addEventListener("DOMContentLoaded", function () {
             addTask(textArea.value);
             textArea.value = "";
         }
+    });
 
-
-    })
+    // Event handler for removing given task from the list
+    todoList.addEventListener("click", function(e) {
+        e.target.closest(".todo-element").remove();
+    });
 });
+
+
+
+
+
