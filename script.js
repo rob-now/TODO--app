@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // heading
         var heading = document.createElement("h4");
-        heading.classList.add("todo-element-title");
+        heading.classList.add("todo-element-title", "search-in");
         // assigning title and my date format to heading
         heading.innerHTML = tt + " (" + '<span class="todo-element-date">' + myDateFormat() + ")";
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // text div
         var todoText = document.createElement("div");
-        todoText.classList.add("todo-element-text");
+        todoText.classList.add("todo-element-text", "search-in");
         todoText.innerText = text;
 
         // Adding elements to DOM
@@ -90,11 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Search functionality
+    // Not working: search in titles which also have class ".search-in". Why?
     search.addEventListener("input", function () {
-        const searchValue = this.value;
-        const tasks = todoList.querySelectorAll(".todo-element-text");
+        const searchValue = this.value.toLowerCase();
+        const tasks = todoList.querySelectorAll(".search-in");
         [].forEach.call(tasks, function (e) {
-            const taskText = e.innerText;
+            const taskText = e.innerText.toLowerCase();
             const closestToDo = e.closest(".todo-element");
             if (taskText.indexOf(searchValue) === -1) {
                 closestToDo.classList.add("hidden");
