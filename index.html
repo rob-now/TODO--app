@@ -18,7 +18,9 @@
     <form id="todo-form" class="todo-form">
         <!--LABEL AND TEXT AREA-->
         <div class="task-input">
-            <label for="task-area-input" class="task-area-label">Task description</label>
+            <label for="taskTitle" class="task-title-label">Title</label>
+            <input type="text" name="task-title" id="taskTitle" class="task-title">
+            <label for="task-area-input" class="task-area-label">Description</label>
             <textarea name="task-area-input" id="task-area-input" class="task-area-text"></textarea>
         </div>
         <!--LABEL AND TEXT AREA-->
@@ -49,7 +51,8 @@
             <!--TO-DO ELEMENTS-->
             <div class="todo-element">
                 <div class="todo-element-bar">
-                    <h3 class="todo-element-date">2018-03-15 16:45</h3>
+                    <h3 class="todo-element-title">Title (<span class="todo-element-date">2018-03-15 16:45</span>)</h3>
+
                     <button class="todo-element-delete" title="Delete task">
                         <i class="far fa-trash-alt fa-lg"></i>
                     </button>
@@ -62,7 +65,7 @@
 
             <div class="todo-element">
                 <div class="todo-element-bar">
-                    <h3 class="todo-element-date">2018-03-15 16:45</h3>
+                    <h4 class="todo-element-date">2018-03-15 16:45</h4>
                     <button class="todo-element-delete" title="Delete task">
                         <i class="far fa-trash-alt fa-lg"></i>
                     </button>

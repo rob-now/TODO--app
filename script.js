@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const todoList = document.querySelector("#todoList");
 
     // Adding tasks functionality
-    function addTask(text) {
+    function addTask(tt, text) {
         // to-do element div
         var todoElement = document.createElement("div");
         todoElement.classList.add("todo-element");
@@ -14,30 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // heading
         var heading = document.createElement("h4");
-        heading.classList.add("todo-element-date");
-        // assigning my date format to heading
-        heading.innerText = myDateFormat();
+        heading.classList.add("todo-element-title");
+        // assigning title and my date format to heading
+        heading.innerHTML = tt + " (" + '<span class="todo-element-date">' + myDateFormat() + ")";
 
         // delete button
         var deleteBtn = document.createElement("button");
         deleteBtn.classList.add("todo-element-delete");
-        deleteBtn.title = "Delete task";
-        var deleteIcon = document.createElement("i");
-        deleteIcon.classList.add("far", "fa-trash-alt", "fa-lg");
+        deleteBtn.innerHTML = '<i class="far fa-trash-alt fa-lg"></i>';
 
         // text div
         var todoText = document.createElement("div");
         todoText.classList.add("todo-element-text");
+        todoText.innerText = text;
 
         // Adding elements to DOM
-        var todoElementDOM = todoList.appendChild(todoElement);
-        // bar area
-        var todoElementBarDOM = todoElementDOM.appendChild(todoElementBar);
-        todoElementBarDOM.appendChild(heading);
-        todoElementBarDOM.appendChild(deleteBtn).appendChild(deleteIcon);
-        // text area
-        var todoTextDOM = todoElementDOM.appendChild(todoText);
-        todoTextDOM.innerText = text;
+        // bar area (heading + deleteBtn)
+        todoElementBar.appendChild(heading);
+        todoElementBar.appendChild(deleteBtn);
+
+        // building whole element (bar + text)
+        todoElement.appendChild(todoElementBar);
+        todoElement.appendChild(todoText);
+
+        // adding element do the list
+        todoList.appendChild(todoElement);
 
         // setting up my own date format
         function myDateFormat() {
@@ -72,9 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Event handler for adding tasks to the list
     document.addEventListener("submit", function (e) {
         e.preventDefault();
+        const taskTitle = this.querySelector(".task-title");
         const textArea = this.querySelector(".task-area-text");
-        if (textArea.value !== "") {
-            addTask(textArea.value);
+        if (taskTitle.value !== "" && textArea.value !== "") {
+            addTask(taskTitle.value, textArea.value);
+            taskTitle.value = "";
             textArea.value = "";
         }
     });
