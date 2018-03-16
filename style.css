@@ -17,6 +17,10 @@ textarea, input {
     outline-color: #69abcc;
 }
 
+label, h2 {
+    color: #4e7d9c;
+}
+
 .container {
     margin: auto;
 }
@@ -111,6 +115,10 @@ textarea, input {
 
 .hidden {
     display: none;
+}
+
+.highlight {
+    border: 1px solid red;
 }
 
 @media screen and (min-width: 768px) {

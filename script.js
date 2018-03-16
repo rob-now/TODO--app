@@ -75,6 +75,19 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         const taskTitle = this.querySelector(".task-title");
         const textArea = this.querySelector(".task-area-text");
+
+        if (taskTitle.value === "") {
+            taskTitle.classList.add("highlight");
+        } else {
+            taskTitle.classList.remove("highlight");
+        }
+
+        if (textArea.value === "") {
+            textArea.classList.add("highlight");
+        } else {
+            textArea.classList.remove("highlight");
+        }
+
         if (taskTitle.value !== "" && textArea.value !== "") {
             addTask(taskTitle.value, textArea.value);
             taskTitle.value = "";
