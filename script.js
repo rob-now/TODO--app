@@ -85,7 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event handler for removing given task from the list
     todoList.addEventListener("click", function (e) {
-        e.target.closest(".todo-element").remove();
+        if (e.target.closest(".todo-element-delete") !== null) {
+            e.target.closest(".todo-element").remove();
+        }
     });
 
     // Search functionality
