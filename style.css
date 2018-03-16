@@ -104,6 +104,10 @@ textarea, input {
     color: #69abcc;
 }
 
+.hidden {
+    display: none;
+}
+
 @media screen and (min-width: 768px) {
     .container {
         width: 768px;

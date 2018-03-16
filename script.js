@@ -84,8 +84,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Event handler for removing given task from the list
-    todoList.addEventListener("click", function(e) {
+    todoList.addEventListener("click", function (e) {
         e.target.closest(".todo-element").remove();
+    });
+
+    // Search functionality
+    search.addEventListener("input", function () {
+        const searchValue = this.value;
+        const tasks = todoList.querySelectorAll(".todo-element-text");
+        [].forEach.call(tasks, function (e) {
+            const taskText = e.innerText;
+            const closestToDo = e.closest(".todo-element");
+            if (taskText.indexOf(searchValue) === -1) {
+                closestToDo.classList.add("hidden");
+            }
+            else {
+                closestToDo.classList.remove("hidden");
+            }
+        });
     });
 });
 
